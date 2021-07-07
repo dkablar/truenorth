@@ -7,8 +7,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import hr.truenorth.TrueNorth.Model.User;
@@ -55,14 +53,6 @@ public class LoginController {
 		log.info("ERROR while logging in.");
 		
 		model.addAttribute("error", "Login unsuccesful.");
-		return new ModelAndView("homepage");
-	}
-	
-	@PostMapping("/login")
-	public ModelAndView login(@RequestParam String username, @RequestParam String password, Model model) {
-		
-		log.info(username + " " + password);
-		
 		return new ModelAndView("homepage");
 	}
 }

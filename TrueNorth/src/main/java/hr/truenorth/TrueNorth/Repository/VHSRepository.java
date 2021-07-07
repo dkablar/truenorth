@@ -15,4 +15,7 @@ public interface VHSRepository extends JpaRepository<VHS, Long> {
 	
 	@Query(value="SELECT * FROM vhs WHERE vhs_id = :id", nativeQuery=true)
 	public VHS getVHSById(@Param("id") int id);
+	
+	@Query(value="SELECT * FROM vhs WHERE title = :title", nativeQuery=true)
+	public List<VHS> getVHSByTitle(@Param("title") String title);
 }

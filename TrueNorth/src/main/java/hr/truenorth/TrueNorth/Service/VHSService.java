@@ -13,4 +13,6 @@ public interface VHSService {
 	public void addVHS(VHS vhs);
 	
 	public VHS getVHSById(int id);
+	
+	public List<VHS> getVHSByTitle(String title);
 }

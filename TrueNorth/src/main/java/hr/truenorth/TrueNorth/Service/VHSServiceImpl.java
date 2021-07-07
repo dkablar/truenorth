@@ -36,4 +36,9 @@ public class VHSServiceImpl implements VHSService {
 		return iVHSRepository.getVHSById(id);
 	}
 
+	@Override
+	public List<VHS> getVHSByTitle(String title) {
+		return iVHSRepository.getVHSByTitle(title);
+	}
+
 }

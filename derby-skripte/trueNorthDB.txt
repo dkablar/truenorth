@@ -1,0 +1,12 @@
+-- inicijalizacija okruzenja: stvaranje baze podataka koju derby koristi za korisnicke accounte --
+connect 'jdbc:derby://localhost:1527/credentialsDB;user=sa;password=sapwd22;create=true';
+disconnect;
+
+-- stvaranje baze trueNorthDB i novog korisnika koji ce se moci spajati na tu bazu --
+connect 'jdbc:derby://localhost:1527/trueNorthDB;user=sa;password=sapwd22;create=true';
+CALL SYSCS_UTIL.SYSCS_CREATE_USER('DBAdmin', 'DBPassword');
+CALL SYSCS_UTIL.SYSCS_SET_DATABASE_PROPERTY('derby.database.fullAccessUsers', 'DBAdmin');
+disconnect;
+
+-- primjer spajanja tog novog korisnika na bazu trueNorthDB --
+connect 'jdbc:derby://localhost:1527/trueNorthDB;user=DBAdmin;password=DBPassword';
